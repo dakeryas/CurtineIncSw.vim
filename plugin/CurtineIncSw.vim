@@ -11,7 +11,7 @@ function! CurtineIncSw()
     let l:directory_name = fnamemodify(expand("%:p"), ":h")
     " At this point cmd might evaluate to something of the format:
     " /Users/person/ . -type f -iregex ".*\/test_class.h[a-z]*" -print -quit
-    let l:cmd="find " . l:directory_name . " . -type f -iregex \""  . l:next_file . "\" -print -quit"
+    let l:cmd="find " . l:directory_name . " ". l:directory_name . "/../ " . l:directory_name . "/../../src -type f -iregex \""  . l:next_file . "\" -print -quit"
 
     " The substitute gets rid of the new line at the end of the result. The
     " function `filereadable` does not like the newline that `find` puts at
