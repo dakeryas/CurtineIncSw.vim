@@ -1,3 +1,8 @@
+if exists("g:loaded_CurtineIncSw")
+  finish
+endif
+let g:loaded_CurtineIncSw = 1
+
 function! CurtineIncSw()
   if match(expand("%"), '\.c') > 0
     let l:next_file = substitute(".*\\\/" . expand("%:t"), '\.c\(.*\)', '.h[a-z]*', "")
