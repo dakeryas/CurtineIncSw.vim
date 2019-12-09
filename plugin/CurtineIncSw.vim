@@ -8,6 +8,8 @@ function! CurtineIncSw()
     let l:next_file = substitute(".*\\\/" . expand("%:t"), '\.c\(.*\)', '.h[a-z]*', "")
   elseif match(expand("%"), "\\.h") > 0
     let l:next_file = substitute(".*\\\/" . expand("%:t"), '\.h\(.*\)', '.c[a-z]*', "")
+  else
+      throw "Current buffer is not on a file!"
   endif
 
   if exists("b:previous_file") && b:previous_file == l:next_file
